@@ -44,7 +44,9 @@ bot.on("join", function (channel, username, self) {
       visits: 1,
       points: 0,
       rank: null,
-      level: 0
+      level: 0,
+      lastSent: "",
+      quotes: []
     }
     bot.action(chan, `${username} welcome to the stream!`)
   }
