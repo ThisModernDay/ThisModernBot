@@ -9,7 +9,7 @@ module.exports.run = (bot, db, writeData, chan, user, msg, cmd, args) => {
     db[user.username].quotes = [];
   }
   if(db[user.username].quotes.length === 0){
-    bot.action(chan, `${user.username} you don't have any quotes :(`)
+    bot.action(chan, `${user.username} you don't have any quotes :(`);
   }
   if(args.length === 0 && db[user.username].quotes.length > 0){
     bot.action(chan, `${db[user.username].quotes[Math.floor(Math.random() * db[user.username].quotes.length)]} - ${user.username}`);
