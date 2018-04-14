@@ -8,11 +8,11 @@ module.exports.run = (bot, databaseFile, writeData, chatChannel, user, msg, cmd,
   if(args[0] === "clear"){
     databaseFile[user.username].quotes = [];
   }
-  if(databaseFile[user.username].quotes.length === 0){
+  if(args.length === 0 && databaseFile[user.username].quotes.length === 0){
     bot.action(chatChannel, `${user.username} you don't have any quotes :(`);
   }
   if(args.length === 0 && databaseFile[user.username].quotes.length > 0){
-    bot.action(chatChannel, `${databaseFile[user.username].quotes[Math.floor(Math.random() * databaseFile[user.username].quotes.length)]} - ${user.username}`);
+    bot.action(chatChannel, `"${databaseFile[user.username].quotes[Math.floor(Math.random() * databaseFile[user.username].quotes.length)]}" - ${user.username}`);
   }
   writeData(databaseFile);
 }
