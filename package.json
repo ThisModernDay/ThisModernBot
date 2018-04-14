@@ -1,0 +1,20 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "chatbot",
+  "main": "app.js",
+  "dependencies": {
+    "moment": "^2.22.0",
+    "npm": "^5.8.0",
+    "tmi.js": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "Brandon Leffew @ReduxBot",
+  "license": "ISC"
+}
