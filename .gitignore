@@ -1,4 +1,4 @@
 oAuthpass.js
 node_modules
 thismodernbot.json
-db.json
+*.json
