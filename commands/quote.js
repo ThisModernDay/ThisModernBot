@@ -1,20 +1,20 @@
-module.exports.run = (bot, db, writeData, chan, user, msg, cmd, args) => {
-  if(db[user.username].quotes.length > 4){
-    db[user.username].quotes.length = 4;
+module.exports.run = (bot, databaseFile, writeData, chatChannel, user, msg, cmd, args) => {
+  if(databaseFile[user.username].quotes.length > 4){
+    databaseFile[user.username].quotes.length = 4;
   }
   if(args[0] === "me" ){
-    db[user.username].quotes.unshift(db[user.username].lastSent);
+    databaseFile[user.username].quotes.unshift(databaseFile[user.username].lastSent);
   }
   if(args[0] === "clear"){
-    db[user.username].quotes = [];
+    databaseFile[user.username].quotes = [];
   }
-  if(db[user.username].quotes.length === 0){
-    bot.action(chan, `${user.username} you don't have any quotes :(`);
+  if(databaseFile[user.username].quotes.length === 0){
+    bot.action(chatChannel, `${user.username} you don't have any quotes :(`);
   }
-  if(args.length === 0 && db[user.username].quotes.length > 0){
-    bot.action(chan, `${db[user.username].quotes[Math.floor(Math.random() * db[user.username].quotes.length)]} - ${user.username}`);
+  if(args.length === 0 && databaseFile[user.username].quotes.length > 0){
+    bot.action(chatChannel, `${databaseFile[user.username].quotes[Math.floor(Math.random() * databaseFile[user.username].quotes.length)]} - ${user.username}`);
   }
-  writeData(db);
+  writeData(databaseFile);
 }
 
 module.exports.help = {

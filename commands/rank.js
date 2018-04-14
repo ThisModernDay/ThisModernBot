@@ -1,5 +1,5 @@
-module.exports.run = (bot, db, writeData, chan, user, msg, cmd, args) => {
-  bot.action(chan, `${user.username} your current rank is ${db[user.username].rank}`);
+module.exports.run = (bot, databaseFile, writeData, chatChannel, user, msg, cmd, args) => {
+  bot.action(chatChannel, `${user.username} your current rank is ${databaseFile[user.username].rank}`);
 }
 
 module.exports.help = {

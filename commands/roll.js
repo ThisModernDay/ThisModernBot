@@ -1,18 +1,18 @@
 
 var lottoPick = Math.floor((Math.random() * 100) + 1);
 
-module.exports.run = (bot, db, writeData, chan, user, msg, cmd, args) => {
+module.exports.run = (bot, databaseFile, writeData, chatChannel, user, msg, cmd, args) => {
   var dice = Math.floor((Math.random() * 100) + 1);
 
   if(dice === lottoPick){
-    bot.action(chan, `${user.username} rolled ${dice}
+    bot.action(chatChannel, `${user.username} rolled ${dice}
       and Won the lotto! Awarded Points ${lottoPick}`);
-    db[user.username].points += lottoPick;
-    writeData(db);
+    databaseFile[user.username].points += lottoPick;
+    writeData(databaseFile);
     lottoPick = Math.floor((Math.random() * 100) + 1);
   }
   else {
-    bot.say(chan, `${user.username} rolled ${dice}.`);
+    bot.say(chatChannel, `${user.username} rolled ${dice}.`);
   }
 }
 
